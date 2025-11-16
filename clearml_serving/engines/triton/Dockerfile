@@ -1,11 +1,14 @@
 
-FROM nvcr.io/nvidia/tritonserver:22.08-py3
+FROM nvcr.io/nvidia/tritonserver:25.10-py3
 
 
 ENV LC_ALL=C.UTF-8
 
+# exclude pip from -U , otherwise: ERROR: Cannot uninstall pip 24.0, RECORD file not found. Hint: The package was installed by debian.
+# RUN python3 -m pip install --no-cache-dir -U pip 
+
 # install base package
-RUN python3 -m pip install --no-cache-dir -U pip clearml-serving
+RUN python3 -m pip install --no-cache-dir -U clearml-serving
 
 # get latest execution code from the git repository
 # RUN cd $HOME && git clone https://github.com/allegroai/clearml-serving.git
