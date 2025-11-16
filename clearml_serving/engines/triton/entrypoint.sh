@@ -15,4 +15,4 @@ then
 fi
 
 # start service
-PYTHONPATH=$(pwd) python3 clearml_serving/engines/triton/triton_helper.py $CLEARML_TRITON_HELPER_ARGS $@
+PYTHONPATH=/opt/tritonserver/backends/dali/wheel/dali:$(pwd) python3 clearml_serving/engines/triton/triton_helper.py $CLEARML_TRITON_HELPER_ARGS $@
