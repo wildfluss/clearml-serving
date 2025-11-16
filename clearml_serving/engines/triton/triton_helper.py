@@ -177,7 +177,7 @@ class TritonHelper(object):
                 self._extract_single_file(local_path, model_folder / "model.plan", verbose)
             elif local_path.is_file():
                 # generic model will be stored as 'model.bin'
-                self._extract_single_file(local_path, model_folder / "model.bin", verbose)
+                self._extract_single_file(local_path, model_folder / "model.onnx", verbose)
             elif local_path.is_dir():
                 # generic model will be stored into the model folder
                 self._extract_folder(local_path, model_folder, verbose)
