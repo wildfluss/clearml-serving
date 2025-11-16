@@ -6,6 +6,9 @@ ENV LC_ALL=C.UTF-8
 
 # exclude pip from -U , otherwise: ERROR: Cannot uninstall pip 24.0, RECORD file not found. Hint: The package was installed by debian.
 # RUN python3 -m pip install --no-cache-dir -U pip 
+RUN apt-get update \
+    && apt-get install -y --only-upgrade python3-pip \
+    && rm -rf /var/lib/apt/lists/*
 
 # install base package
 RUN python3 -m pip install --no-cache-dir -U clearml-serving
